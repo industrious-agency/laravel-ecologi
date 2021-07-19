@@ -1,0 +1,25 @@
+{
+    "name": "industriousagency/ecologi-laravel",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Adam Rollinson",
+            "email": "adam.rollinson@industrious.agency"
+        }
+    ],
+    "require": {
+        "owenvoke/ecologi": "^1.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "IndustriousAgency\\LaravelEcologi\\LaravelEcologilServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "IndustriousAgency\\EcologiLaravel\\": "src/"
+        }
+    }
+}
