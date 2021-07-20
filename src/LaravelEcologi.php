@@ -1,6 +1,6 @@
 <?php
 
-namespace IndustriousAgency\EcologiLaravel;
+namespace IndustriousAgency\LaravelEcologi;
 
 use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
 use OwenVoke\Ecologi\Api\Purchasing;
@@ -15,15 +15,18 @@ class LaravelEcologi
      */
     private EcologiClient $client;
 
-    public function __construct()
+    /**
+     * @var string
+     */
+    private string $apiKey;
+
+    public function __construct(string $apiKey)
     {
-        $httpClient = new Builder();
+        $this->apiKey = $apiKey;
 
-        $httpClient->addPlugin(new HeaderDefaultsPlugin([
-            'Content-Type' => 'application/json',
-        ]));
-
-        $this->client = new EcologiClient($httpClient);
+        $this->client = new EcologiClient(
+            $this->httpClient()
+        );
     }
 
     /**
@@ -32,6 +35,7 @@ class LaravelEcologi
     public function purchase(): Purchasing
     {
         $this->authenticate();
+
         return $this->client->purchase();
     }
 
@@ -46,8 +50,22 @@ class LaravelEcologi
     private function authenticate(): void
     {
         $this->client->authenticate(
-            env('ECOLOGI_API_KEY'),
+            $this->apiKey,
             EcologiClient::AUTH_ACCESS_TOKEN
         );
+    }
+
+    /**
+     * @return Builder
+     */
+    private function httpClient(): Builder
+    {
+        $httpClient = new Builder();
+
+        $httpClient->addPlugin(new HeaderDefaultsPlugin([
+            'Content-Type' => 'application/json',
+        ]));
+
+        return $httpClient;
     }
 }

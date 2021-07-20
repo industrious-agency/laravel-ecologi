@@ -8,18 +8,20 @@
         }
     ],
     "require": {
-        "owenvoke/ecologi": "^1.0"
+        "owenvoke/ecologi": "^1.0",
+        "guzzlehttp/guzzle": "^7.0.1",
+        "http-interop/http-factory-guzzle": "^1.0"
     },
     "extra": {
         "laravel": {
             "providers": [
-                "IndustriousAgency\\LaravelEcologi\\LaravelEcologilServiceProvider"
+                "IndustriousAgency\\LaravelEcologi\\LaravelEcologiServiceProvider"
             ]
         }
     },
     "autoload": {
         "psr-4": {
-            "IndustriousAgency\\EcologiLaravel\\": "src/"
+            "IndustriousAgency\\LaravelEcologi\\": "src/"
         }
     }
 }

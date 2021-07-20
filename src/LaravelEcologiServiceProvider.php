@@ -1,15 +1,34 @@
 <?php
 
-namespace IndustriousAgency\EcologiLaravel;
+namespace IndustriousAgency\LaravelEcologi;
 
 use Illuminate\Support\ServiceProvider;
+use IndustriousAgency\LaravelEcologi\Exceptions\LaravelEcologiApiKeyNotFound;
 
 class LaravelEcologiServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->app->singleton('ecologi.api', function() {
-            return new LaravelEcologi();
+        $this->mergeConfigFrom(
+            __DIR__ . '/../config/ecologi.php',
+            'ecologi'
+        );
+
+        $this->app->singleton(LaravelEcologi::class, function () {
+            $apiKey = config('ecologi.api_key');
+
+            if (! $apiKey) {
+                throw new LaravelEcologiApiKeyNotFound('Ecologi API Key not set');
+            }
+
+            return new LaravelEcologi($apiKey);
         });
+    }
+
+    public function boot()
+    {
+        $this->publishes([
+            __DIR__ . '/../config' => config_path(),
+        ], 'config');
     }
 }
