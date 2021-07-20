@@ -1,5 +1,5 @@
 {
-    "name": "industriousagency/ecologi-laravel",
+    "name": "industrious/ecologi-laravel",
     "version": "1.0.0",
     "authors": [
         {
@@ -15,13 +15,13 @@
     "extra": {
         "laravel": {
             "providers": [
-                "IndustriousAgency\\LaravelEcologi\\LaravelEcologiServiceProvider"
+                "Industrious\\LaravelEcologi\\LaravelEcologiServiceProvider"
             ]
         }
     },
     "autoload": {
         "psr-4": {
-            "IndustriousAgency\\LaravelEcologi\\": "src/"
+            "Industrious\\LaravelEcologi\\": "src/"
         }
     }
 }

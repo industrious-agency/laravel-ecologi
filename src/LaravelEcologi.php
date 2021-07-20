@@ -1,6 +1,6 @@
 <?php
 
-namespace IndustriousAgency\LaravelEcologi;
+namespace Industrious\LaravelEcologi;
 
 use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
 use OwenVoke\Ecologi\Api\Purchasing;

@@ -1,6 +1,6 @@
 <?php
 
-namespace IndustriousAgency\LaravelEcologi\Exceptions;
+namespace Industrious\LaravelEcologi\Exceptions;
 
 use Exception;
 

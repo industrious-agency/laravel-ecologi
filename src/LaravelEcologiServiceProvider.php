@@ -1,9 +1,9 @@
 <?php
 
-namespace IndustriousAgency\LaravelEcologi;
+namespace Industrious\LaravelEcologi;
 
 use Illuminate\Support\ServiceProvider;
-use IndustriousAgency\LaravelEcologi\Exceptions\LaravelEcologiApiKeyNotFound;
+use Industrious\LaravelEcologi\Exceptions\LaravelEcologiApiKeyNotFound;
 
 class LaravelEcologiServiceProvider extends ServiceProvider
 {
