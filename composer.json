@@ -9,7 +9,7 @@
     ],
     "require": {
         "owenvoke/ecologi": "^1.0",
-        "guzzlehttp/guzzle": "^7.0.1",
+        "guzzlehttp/guzzle": "^6|^7",
         "http-interop/http-factory-guzzle": "^1.0"
     },
     "extra": {
